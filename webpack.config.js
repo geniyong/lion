@@ -7,26 +7,26 @@ module.exports = {
   // webpack-dev-server settings
   devServer: {
     contentBase: './public',
-    publicPath: '/dist'
+    publicPath: '/dist',
   },
 
-  mode: "development",
+  mode: 'development',
 
   // Webpack Entry Point
-  entry: "./src/index.jsx",
+  entry: './src/index.jsx',
 
   // Build output path
   output: {
-    filename: "main.js",
-    path: __dirname + "/dist",
+    filename: 'main.js',
+    path: `${__dirname }/dist`,
   },
 
   // Add source-map in output to debug
-  devtool: "source-map",
+  devtool: 'source-map',
 
   resolve: {
     // An order of extensions is importatnt for the priority in extensions.
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 
   module: {
@@ -41,14 +41,14 @@ module.exports = {
       // Add ts-loader to compile typescript
       {
         test: /\.(ts|tsx)$/,
-        loader: "ts-loader",
+        loader: 'ts-loader',
       },
 
       // Minify CSS
       {
         test: /\.(css)$/,
         exclude: /node_modules/,
-        use: [ miniCssExtractPlugin.loader, 'css-loader' ],
+        use: [miniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
@@ -60,11 +60,11 @@ module.exports = {
       meta: {
         viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
       },
-      template: './public/index.html'
+      template: './public/index.html',
     }),
     new miniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[name].[id].css'
-    })
+      chunkFilename: '[name].[id].css',
+    }),
   ],
-}
+};
